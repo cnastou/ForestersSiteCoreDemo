@@ -1,0 +1,32 @@
+﻿@* Use the error view model supplied by the controller. *@
+@model ErrorViewModel
+@* Set the browser title for the error page. *@
+@{
+    ViewData["Title"] = "Error";
+}
+
+@* Display a short error heading. *@
+<h1 class="text-danger">Error.</h1>
+@* Explain that request processing failed. *@
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@* Show the request identifier when one is available. *@
+@if (Model.ShowRequestId)
+{
+    <p>
+        @* Label the diagnostic request identifier. *@
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+@* Explain how development mode changes error details. *@
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+    It can result in displaying sensitive information from exceptions to end users.
+    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+    and restarting the app.
+</p>

@@ -1,0 +1,81 @@
+﻿@* Declare the document type for standards-compliant rendering. *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @* Set the document character encoding. *@
+    <meta charset="utf-8" />
+    @* Make the layout responsive on mobile devices. *@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @* Include the current view title in the browser title. *@
+    <title>@ViewData["Title"] - Foresters Financial</title>
+    @* Load expressive display and interface typefaces. *@
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    @* Enable import-map support for browser modules. *@
+    <script type="importmap"></script>
+    @* Load Bootstrap's base styles. *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* Load the application's custom styles with cache busting. *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @* Load generated scoped styles with cache busting. *@
+    <link rel="stylesheet" href="~/ForestersSiteCoreDemo.styles.css" asp-append-version="true" />
+</head>
+<body>
+    @* Render the shared site navigation. *@
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm site-navbar">
+            <div class="container-fluid site-nav-inner">
+                @* Link the brand to the home page. *@
+                <a class="navbar-brand site-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="brand-mark">F</span>
+                    <span>Foresters <span class="brand-accent">Financial</span></span>
+                </a>
+                @* Provide the mobile navigation toggle. *@
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @* Display links to the main pages. *@
+                    <ul class="navbar-nav ms-auto align-items-sm-center gap-sm-3">
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Solutions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" asp-area="" asp-controller="Insurance" asp-action="Index">Insurance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link site-nav-link" href="#why-foresters">Why Foresters</a>
+                        </li>
+                        <li class="nav-item d-none d-sm-block">
+                            <a class="nav-cta" href="#contact">Talk to us <span aria-hidden="true">↗</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @* Constrain and render the current view content. *@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* Render the shared site footer. *@
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 Foresters Financial - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    @* Load jQuery for client-side interactions. *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* Load Bootstrap's interactive components. *@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @* Load the application's JavaScript with cache busting. *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @* Render optional scripts supplied by individual views. *@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

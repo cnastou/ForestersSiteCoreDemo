@@ -1,0 +1,53 @@
+@* This is a polished insurance products landing page *@
+@using System.Globalization
+@model List<ForestersSiteCoreDemo.Models.InsuranceProduct>;
+
+@{
+    ViewData["Title"] = "Insurance Products";
+    var usdCulture = CultureInfo.GetCultureInfo("en-US");
+}
+
+<div class="container py-5">
+    <div class="bg-light border rounded-4 shadow-sm p-4 p-lg-5 mb-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <p class="text-uppercase fw-semibold text-primary mb-2">Coverage for every stage</p>
+                <h1 class="display-5 fw-bold mb-3">Insurance products built around your life.</h1>
+                <p class="lead text-secondary mb-0">Choose protection that helps you feel prepared for what matters most.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="#products" class="btn btn-primary btn-lg rounded-pill px-4">Explore plans</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="products" class="row g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-6 col-xl-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h2 class="h4 mb-0">@product.Name</h2>
+                            @if (product.IsActive)
+                            {
+                                <span class="badge bg-success rounded-pill">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary rounded-pill">Inactive</span>
+                            }
+                        </div>
+
+                        <p class="text-secondary flex-grow-1">@product.Description</p>
+
+                        <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-auto">
+                            <span class="text-muted small">Starting at</span>
+                            <strong class="fs-5">@product.Price.ToString("C", usdCulture)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

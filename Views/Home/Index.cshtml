@@ -1,0 +1,86 @@
+﻿@* Set the browser title for the financial services landing page. *@
+@model ForestersSiteCoreDemo.Models.ContentPage;
+
+@{
+    ViewData["Title"] = Model.Title ?? "Foresters Financial";
+}
+
+@* Introduce Foresters Financial with a clear advisory message and service entry points. *@
+<div class="landing-page">
+    <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> Financial guidance for real life</p>
+            <h1 id="hero-title">@Html.Raw(Model.Heading)</h1>
+            <p class="hero-lede">@Model.HeroDescription</p>
+            <div class="hero-actions">
+                <a class="primary-action" href="#explore">Explore solutions <span aria-hidden="true">↗</span></a>
+                <a class="text-action" href="#contact">Speak with an advisor <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-proof" aria-label="Foresters Financial highlights">
+                <span><strong>150+</strong> years of shared purpose</span>
+                <span><strong>01</strong> member-first approach</span>
+            </div>
+        </div>
+        <div class="hero-visual" role="img" aria-label="A financial advisor meeting with a couple">
+            <div class="visual-caption">
+                <span class="caption-dot"></span>
+                <span>Planning for tomorrow</span>
+            </div>
+            <div class="visual-card">
+                <span class="visual-card-label">Your financial future</span>
+                <strong>Protection for today. Possibility for tomorrow.</strong>
+                <span class="visual-card-arrow" aria-hidden="true">↗</span>
+            </div>
+        </div>
+    </section>
+
+    @* Present the primary services in a scannable business-focused section. *@
+    <section id="explore" class="explore-section" aria-labelledby="explore-title">
+        <div class="section-heading">
+            <p class="eyebrow"><span class="eyebrow-line"></span> Solutions for every stage</p>
+            <h2 id="explore-title">A stronger financial future <em>starts here.</em></h2>
+        </div>
+        <div class="feature-list">
+            <article class="feature-item">
+                <span class="feature-number">01</span>
+                <div>
+                    <h3>Protect what matters</h3>
+                    <p>Life insurance solutions designed to help provide confidence when your family needs it most.</p>
+                </div>
+                <span class="feature-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="feature-item">
+                <span class="feature-number">02</span>
+                <div>
+                    <h3>Build toward your goals</h3>
+                    <p>Savings and investment options to help you prepare for the milestones ahead.</p>
+                </div>
+                <span class="feature-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="feature-item">
+                <span class="feature-number">03</span>
+                <div>
+                    <h3>Belong to something bigger</h3>
+                    <p>Member benefits and community programs that turn financial strength into shared progress.</p>
+                </div>
+                <span class="feature-arrow" aria-hidden="true">↗</span>
+            </article>
+        </div>
+    </section>
+
+    @* Close with a direct advisor call to action. *@
+    <section id="why-foresters" class="trust-band" aria-labelledby="trust-title">
+        <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> Why Foresters</p>
+            <h2 id="trust-title">A partner for the decisions that shape your life.</h2>
+        </div>
+        <p>Our member-owned approach keeps the focus where it belongs: on helping people and families feel more prepared for the future.</p>
+    </section>
+    <section id="contact" class="contact-band" aria-label="Contact Foresters Financial">
+        <div>
+            <span class="contact-label">Ready when you are</span>
+            <h2>Let’s talk about your next chapter.</h2>
+        </div>
+        <a class="primary-action light-action" href="mailto:advisors@foresters.com">Connect with an advisor <span aria-hidden="true">↗</span></a>
+    </section>
+</div>
